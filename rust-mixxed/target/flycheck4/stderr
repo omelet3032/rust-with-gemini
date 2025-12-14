@@ -1,52 +1,12 @@
-   0.003688708s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint: fingerprint error for rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed)/Check { test: false }/TargetInner { name: "rust-mixxed", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/src/main.rs", Edition2024) }
-   0.003707291s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/target/debug/.fingerprint/rust-mixxed-ea58693f035d5a86/bin-rust-mixxed`
-
-Caused by:
-    No such file or directory (os error 2)
-
-Stack backtrace:
-   0: std::backtrace::Backtrace::create
-   1: std::backtrace::Backtrace::capture
-   2: cargo_util::paths::read_bytes
-   3: cargo_util::paths::read
-   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
-   5: cargo::core::compiler::fingerprint::prepare_target
-   6: cargo::core::compiler::compile
-   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
-   8: cargo::ops::cargo_compile::compile_ws
-   9: cargo::ops::cargo_compile::compile_with_exec
-  10: cargo::ops::cargo_compile::compile
-  11: cargo::commands::check::exec
-  12: <cargo::cli::Exec>::exec
-  13: cargo::main
-  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
-  15: std::rt::lang_start::<()>::{closure#0}
-  16: std::rt::lang_start_internal
-  17: _main
-   0.006368166s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint: fingerprint error for rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed)/Check { test: true }/TargetInner { name: "rust-mixxed", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/src/main.rs", Edition2024) }
-   0.006375208s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/target/debug/.fingerprint/rust-mixxed-cef2d3c3493c1a15/test-bin-rust-mixxed`
-
-Caused by:
-    No such file or directory (os error 2)
-
-Stack backtrace:
-   0: std::backtrace::Backtrace::create
-   1: std::backtrace::Backtrace::capture
-   2: cargo_util::paths::read_bytes
-   3: cargo_util::paths::read
-   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
-   5: cargo::core::compiler::fingerprint::prepare_target
-   6: cargo::core::compiler::compile
-   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
-   8: cargo::ops::cargo_compile::compile_ws
-   9: cargo::ops::cargo_compile::compile_with_exec
-  10: cargo::ops::cargo_compile::compile
-  11: cargo::commands::check::exec
-  12: <cargo::cli::Exec>::exec
-  13: cargo::main
-  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
-  15: std::rt::lang_start::<()>::{closure#0}
-  16: std::rt::lang_start_internal
-  17: _main
+   0.003444375s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint: stale: changed "/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/src/main.rs"
+   0.003458916s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint:           (vs) "/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/target/debug/.fingerprint/rust-mixxed-ea58693f035d5a86/dep-bin-rust-mixxed"
+   0.003462041s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1765712821, nanos: 718452369 } < FileTime { seconds: 1765712824, nanos: 264517638 }
+   0.003509708s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint: fingerprint dirty for rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed)/Check { test: false }/TargetInner { name: "rust-mixxed", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/src/main.rs", Edition2024) }
+   0.003520375s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/target/debug/.fingerprint/rust-mixxed-ea58693f035d5a86/dep-bin-rust-mixxed", reference_mtime: FileTime { seconds: 1765712821, nanos: 718452369 }, stale: "/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/src/main.rs", stale_mtime: FileTime { seconds: 1765712824, nanos: 264517638 } }))
+   0.003670791s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint: stale: changed "/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/src/main.rs"
+   0.003673583s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint:           (vs) "/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/target/debug/.fingerprint/rust-mixxed-cef2d3c3493c1a15/dep-test-bin-rust-mixxed"
+   0.003675541s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1765712821, nanos: 718449411 } < FileTime { seconds: 1765712824, nanos: 264517638 }
+   0.003711333s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint: fingerprint dirty for rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed)/Check { test: true }/TargetInner { name: "rust-mixxed", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/src/main.rs", Edition2024) }
+   0.003715833s  INFO prepare_target{force=false package_id=rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed) target="rust-mixxed"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/target/debug/.fingerprint/rust-mixxed-cef2d3c3493c1a15/dep-test-bin-rust-mixxed", reference_mtime: FileTime { seconds: 1765712821, nanos: 718449411 }, stale: "/Users/omelet1/Documents/rust-with-gemini/rust-mixxed/src/main.rs", stale_mtime: FileTime { seconds: 1765712824, nanos: 264517638 } }))
     Checking rust-mixxed v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/rust-mixxed)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s

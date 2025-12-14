@@ -39,7 +39,7 @@ fn get_warehouse_inventory() -> Vec<Product> {
 // 상품을 필터링하는 클로저가 구현해야 할 타입 별칭
 // 즉, 이 클로저는 &Product 참조를 받아 bool을 반환해야 합니다.
 // type ProductFilter = impl Fn(&Product) -> bool;
-type ProductFilter = Box<dyn Fn(&Product) -> bool>;
+// type ProductFilter = Box<dyn Fn(&Product) -> bool>;
 
 // --------------------
 // 3. 핵심 함수 (작성 필요)
@@ -48,7 +48,11 @@ type ProductFilter = Box<dyn Fn(&Product) -> bool>;
 // 🚀 목표: 재고 목록을 받아, 주어진 필터 클로저에 따라 필터링한 후, 
 //         필터링된 상품의 이름과 가격(Name: Price)을 담은 새로운 Vec<String>을 반환합니다.
 // 📌 소유권 힌트: 입력 Vec<Product>의 소유권을 받아 처리하세요.
-fn process_and_summarize_inventory(inventory: Vec<Product>, filter_fn:ProductFilter) -> Vec<String> {
+fn process_and_summarize_inventory<F>(inventory: Vec<Product>, filter_fn:F) -> Vec<String> 
+where 
+    F: Fn(&Product) -> bool,
+
+{
     // 여기에 코드를 작성하세요 (이터레이터 체인을 사용하세요.)
     let filtered_invertory = inventory.into_iter().filter(filter_fn).map(|item| format!("{}: {}", item.name, item.price)).collect();
     
@@ -77,9 +81,13 @@ fn main() {
     // };
 
 
-    let filter_expensive_electronics = Box::new(|item: &Product|{
+   /*  let filter_expensive_electronics = Box::new(|item: &Product|{
         item.category.contains("Electronics") && item.price >= 1000
     });
+ */
+    let filter_expensive_electronics = |item: &Product|{
+        item.category.contains("Electronics") && item.price >= 1000
+    };
 
     let result_a = process_and_summarize_inventory(inventory, filter_expensive_electronics);
     
@@ -87,14 +95,14 @@ fn main() {
     // 💡 요구사항: 재고가 50개 이상인 (StockStatus::InStock(수량)) 상품만 필터링하는 클로저를 만드세요.
     // 💡 힌트: 열거형 패턴 매칭을 활용해야 합니다.
     let filter_high_stock = /* 여기에 클로저 정의 */ 
-        Box::new(|item:&Product| {
+        |item:&Product| {
             if let StockStatus::InStock(stock) = item.status {
                 stock >= 50
             } else {
                 false
             }
         }
-        );
+        ;
     
     // process_and_summarize_inventory는 소유권을 소비하므로, inventory를 재생성해야 합니다.
     let inventory_b = get_warehouse_inventory();
