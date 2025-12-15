@@ -1,0 +1,1 @@
+/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/target/debug/enumeration-ownership-deepening1: /Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/src/main.rs

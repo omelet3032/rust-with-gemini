@@ -32,7 +32,7 @@ fn handle_status_updates(data: &FlightData) {
     // 여기에 코드 작성
 
     if let FlightData::StatusUpdate(status) = data {
-        println!("{:?}", status);
+        println!("상태 : {:?}", status);
         if let FlightStatus::Delayed(time) = status {
             println!("지연 시간 : {}", time);
         }
@@ -41,7 +41,6 @@ fn handle_status_updates(data: &FlightData) {
     //               지연 시간을 출력하세요. (if let 사용)
     // 💡 힌트: A에서 추출한 값(참조)을 다시 if let으로 처리해야 합니다.
     // 여기에 코드 작성
-
 }
 
 // ------------------------------------------
@@ -56,6 +55,20 @@ fn process_new_flight_data(data: FlightData) -> Option<String> {
     // 📌 힌트: data를 인수로 받았으므로, match에서 소유권이 이동됩니다.
 
     // 여기에 코드 작성
+    match data {
+        FlightData::NewFlight(flight_info) => {
+            // 여기서 data를 한번 더 쓰면 move out이 발생하겠지?
+            Some(format!("{}{}", flight_info.departure_city, flight_info.arrival_city))
+        }
+        FlightData::StatusUpdate(flight_status) => {
+            println!("상태 업데이트 수신됨");
+            None
+        }
+        FlightData::Emergency => {
+            println!("즉시 경고 발령!");
+            None
+        }
+    }
 }
 
 fn main() {

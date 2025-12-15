@@ -1,54 +1,12 @@
-   0.003500708s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint: fingerprint error for enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1)/Check { test: false }/TargetInner { name: "enumeration-ownership-deepening1", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/src/main.rs", Edition2024) }
-   0.003518167s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/target/debug/.fingerprint/enumeration-ownership-deepening1-edd9cb2c05070029/bin-enumeration-ownership-deepening1`
-
-Caused by:
-    No such file or directory (os error 2)
-
-Stack backtrace:
-   0: std::backtrace::Backtrace::create
-   1: std::backtrace::Backtrace::capture
-   2: cargo_util::paths::read_bytes
-   3: cargo_util::paths::read
-   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
-   5: cargo::core::compiler::fingerprint::prepare_target
-   6: cargo::core::compiler::compile
-   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
-   8: cargo::ops::cargo_compile::compile_ws
-   9: cargo::ops::cargo_compile::compile_with_exec
-  10: cargo::ops::cargo_compile::compile
-  11: cargo::commands::check::exec
-  12: <cargo::cli::Exec>::exec
-  13: cargo::main
-  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
-  15: std::rt::lang_start::<()>::{closure#0}
-  16: std::rt::lang_start_internal
-  17: _main
-   0.006172667s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint: fingerprint error for enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1)/Check { test: true }/TargetInner { name: "enumeration-ownership-deepening1", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/src/main.rs", Edition2024) }
-   0.006180042s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/target/debug/.fingerprint/enumeration-ownership-deepening1-91faa919fdb43843/test-bin-enumeration-ownership-deepening1`
-
-Caused by:
-    No such file or directory (os error 2)
-
-Stack backtrace:
-   0: std::backtrace::Backtrace::create
-   1: std::backtrace::Backtrace::capture
-   2: cargo_util::paths::read_bytes
-   3: cargo_util::paths::read
-   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
-   5: cargo::core::compiler::fingerprint::prepare_target
-   6: cargo::core::compiler::compile
-   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
-   8: cargo::ops::cargo_compile::compile_ws
-   9: cargo::ops::cargo_compile::compile_with_exec
-  10: cargo::ops::cargo_compile::compile
-  11: cargo::commands::check::exec
-  12: <cargo::cli::Exec>::exec
-  13: cargo::main
-  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
-  15: std::rt::lang_start::<()>::{closure#0}
-  16: std::rt::lang_start_internal
-  17: _main
+   0.003735666s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint: stale: changed "/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/src/main.rs"
+   0.003748166s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint:           (vs) "/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/target/debug/.fingerprint/enumeration-ownership-deepening1-edd9cb2c05070029/dep-bin-enumeration-ownership-deepening1"
+   0.003752041s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1765805520, nanos: 16813662 } < FileTime { seconds: 1765805563, nanos: 142948755 }
+   0.003824875s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint: fingerprint dirty for enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1)/Check { test: false }/TargetInner { name: "enumeration-ownership-deepening1", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/src/main.rs", Edition2024) }
+   0.003838416s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/target/debug/.fingerprint/enumeration-ownership-deepening1-edd9cb2c05070029/dep-bin-enumeration-ownership-deepening1", reference_mtime: FileTime { seconds: 1765805520, nanos: 16813662 }, stale: "/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/src/main.rs", stale_mtime: FileTime { seconds: 1765805563, nanos: 142948755 } }))
+   0.004111666s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint: stale: changed "/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/src/main.rs"
+   0.004116500s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint:           (vs) "/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/target/debug/.fingerprint/enumeration-ownership-deepening1-91faa919fdb43843/dep-test-bin-enumeration-ownership-deepening1"
+   0.004119416s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1765805520, nanos: 16813787 } < FileTime { seconds: 1765805563, nanos: 142948755 }
+   0.004183333s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint: fingerprint dirty for enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1)/Check { test: true }/TargetInner { name: "enumeration-ownership-deepening1", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/src/main.rs", Edition2024) }
+   0.004190875s  INFO prepare_target{force=false package_id=enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1) target="enumeration-ownership-deepening1"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/target/debug/.fingerprint/enumeration-ownership-deepening1-91faa919fdb43843/dep-test-bin-enumeration-ownership-deepening1", reference_mtime: FileTime { seconds: 1765805520, nanos: 16813787 }, stale: "/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1/src/main.rs", stale_mtime: FileTime { seconds: 1765805563, nanos: 142948755 } }))
     Checking enumeration-ownership-deepening1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/enumeration-ownership-deepening1)
-error: could not compile `enumeration-ownership-deepening1` (bin "enumeration-ownership-deepening1") due to 1 previous error
-warning: build failed, waiting for other jobs to finish...
-error: could not compile `enumeration-ownership-deepening1` (bin "enumeration-ownership-deepening1" test) due to 1 previous error
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s
