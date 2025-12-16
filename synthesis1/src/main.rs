@@ -68,7 +68,7 @@ where
     // 여기에 제약 조건 작성
     // 📌 P: DataProcessor 트레이트를 구현해야 합니다.
     // 📌 T: 클로저 트레이트 (process 메서드와 일치하도록)를 구현해야 합니다.
-    P: DataProcessor<P>,
+    P: DataProcessor<T>,
     T: FnOnce(String) -> String
 {
     // 여기에 코드를 작성하세요.
@@ -76,8 +76,7 @@ where
     // 2. 프로세서의 process 메서드를 호출합니다.
     println!("id : {}", processor.id());
 
-    // 이터레이터 체인?으로 한줄로 process 메서드를 호출해야할 것 같은데
-    
+    processor.process(data, transform_fn)
 }
 
 // --------------------
