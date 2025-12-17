@@ -1,5 +1,5 @@
-   0.004600709s  INFO prepare_target{force=false package_id=synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1) target="synthesis1"}: cargo::core::compiler::fingerprint: fingerprint error for synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1)/Check { test: false }/TargetInner { name: "synthesis1", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/synthesis1/src/main.rs", Edition2024) }
-   0.004622459s  INFO prepare_target{force=false package_id=synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1) target="synthesis1"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/synthesis1/target/debug/.fingerprint/synthesis1-43f46ccd8a522ff2/bin-synthesis1`
+   0.003738458s  INFO prepare_target{force=false package_id=synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1) target="synthesis1"}: cargo::core::compiler::fingerprint: fingerprint error for synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1)/Check { test: false }/TargetInner { name: "synthesis1", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/synthesis1/src/main.rs", Edition2024) }
+   0.003757958s  INFO prepare_target{force=false package_id=synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1) target="synthesis1"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/synthesis1/target/debug/.fingerprint/synthesis1-43f46ccd8a522ff2/bin-synthesis1`
 
 Caused by:
     No such file or directory (os error 2)
@@ -23,8 +23,8 @@ Stack backtrace:
   15: std::rt::lang_start::<()>::{closure#0}
   16: std::rt::lang_start_internal
   17: _main
-   0.007635125s  INFO prepare_target{force=false package_id=synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1) target="synthesis1"}: cargo::core::compiler::fingerprint: fingerprint error for synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1)/Check { test: true }/TargetInner { name: "synthesis1", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/synthesis1/src/main.rs", Edition2024) }
-   0.007643000s  INFO prepare_target{force=false package_id=synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1) target="synthesis1"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/synthesis1/target/debug/.fingerprint/synthesis1-0d3631472ea77523/test-bin-synthesis1`
+   0.006511958s  INFO prepare_target{force=false package_id=synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1) target="synthesis1"}: cargo::core::compiler::fingerprint: fingerprint error for synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1)/Check { test: true }/TargetInner { name: "synthesis1", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/synthesis1/src/main.rs", Edition2024) }
+   0.006520292s  INFO prepare_target{force=false package_id=synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1) target="synthesis1"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/synthesis1/target/debug/.fingerprint/synthesis1-0d3631472ea77523/test-bin-synthesis1`
 
 Caused by:
     No such file or directory (os error 2)
@@ -49,6 +49,6 @@ Stack backtrace:
   16: std::rt::lang_start_internal
   17: _main
     Checking synthesis1 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis1)
-error: could not compile `synthesis1` (bin "synthesis1" test) due to 2 previous errors
+error: could not compile `synthesis1` (bin "synthesis1") due to 1 previous error; 1 warning emitted
 warning: build failed, waiting for other jobs to finish...
-error: could not compile `synthesis1` (bin "synthesis1") due to 2 previous errors
+error: could not compile `synthesis1` (bin "synthesis1" test) due to 1 previous error; 1 warning emitted

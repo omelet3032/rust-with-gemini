@@ -10,7 +10,7 @@
 (이전과 동일합니다. 아래 `impl` 블록과 함수 정의를 완성하세요.)
 
 ```rust */
-use std::fmt::{self, Display};
+use std::fmt::{self, Display, write};
 
 // --------------------
 // 1. 데이터 정의 (Enum)
@@ -107,7 +107,6 @@ where
         // 여기에 코드 작성
         
         if let RawData::Text(input_str) = data {
-            // transform_fn(input_str);
             Ok(RawData::Text(transform_fn(input_str)))
         } else {
             Err("Invaild data type".to_string())
@@ -120,10 +119,11 @@ where
 impl Display for RawData {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // 여기에 코드 작성 (match를 사용하여 모든 RawData 유형을 출력)
-        
-        
-        
-        
+        match self {
+            RawData::Text(text) => write!(f, "{}", text),
+            RawData::Number(num) => write!(f, "{}", num),
+            RawData::Flag(is_active) => write!(f, "{}", is_active),
+        }
         
     }
 }
