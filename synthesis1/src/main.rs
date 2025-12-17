@@ -29,6 +29,8 @@ pub enum RawData {
 // --------------------
 
 /// 데이터를 처리/변환하는 모든 프로세서가 구현해야 할 핵심 트레이트입니다.
+/// 트레이트 레벨에 정의된 제네릭
+/// 메서드 레벨에서 정해진 제네릭과는 구별해야 한
 pub trait DataProcessor<T> {
     fn id(&self) -> &str;
 
@@ -86,12 +88,13 @@ where
 // 🚀 A. TextConverter에 DataProcessor 구현
 impl<T> DataProcessor<T> for TextConverter
 where
+    T: FnOnce(String) -> String
     // 여기에 T의 클로저 트레이트 제약을 다시 한번 명확히 작성하세요.
     // 📌 T: String을 받아 String을 반환하는 FnOnce 클로저여야 합니다.
 {
     // 여기에 id 메서드 구현
     fn id(&self) -> &str {
-        
+        &self.name
     }
 
     /// 소유권 이동을 활용하여 문자열을 처리합니다.
@@ -103,15 +106,12 @@ where
         
         // 여기에 코드 작성
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        if let RawData::Text(input_str) = data {
+            // transform_fn(input_str);
+            Ok(RawData::Text(transform_fn(input_str)))
+        } else {
+            Err("Invaild data type".to_string())
+        }
         
     }
 }
