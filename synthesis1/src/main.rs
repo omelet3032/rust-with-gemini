@@ -1,4 +1,4 @@
-/* 
+/*
 ## 🚀 Rust 종합 심화 연습: 데이터 처리 파이프라인 (문자열 강화)
 
 ### 📋 문제 목표
@@ -40,7 +40,6 @@ pub trait DataProcessor<T> {
     fn process(&self, data: RawData, transform_fn: T) -> Result<RawData, String>;
 }
 
-
 // --------------------
 // 3. 구조체 정의 (Struct)
 // --------------------
@@ -71,7 +70,7 @@ where
     // 📌 P: DataProcessor 트레이트를 구현해야 합니다.
     // 📌 T: 클로저 트레이트 (process 메서드와 일치하도록)를 구현해야 합니다.
     P: DataProcessor<T>,
-    T: FnOnce(String) -> String
+    T: FnOnce(String) -> String,
 {
     // 여기에 코드를 작성하세요.
     // 1. 프로세서의 ID를 출력합니다.
@@ -88,9 +87,8 @@ where
 // 🚀 A. TextConverter에 DataProcessor 구현
 impl<T> DataProcessor<T> for TextConverter
 where
-    T: FnOnce(String) -> String
-    // 여기에 T의 클로저 트레이트 제약을 다시 한번 명확히 작성하세요.
-    // 📌 T: String을 받아 String을 반환하는 FnOnce 클로저여야 합니다.
+    T: FnOnce(String) -> String, // 여기에 T의 클로저 트레이트 제약을 다시 한번 명확히 작성하세요.
+                                 // 📌 T: String을 받아 String을 반환하는 FnOnce 클로저여야 합니다.
 {
     // 여기에 id 메서드 구현
     fn id(&self) -> &str {
@@ -103,15 +101,14 @@ where
         // 2. RawData::Text가 아닌 경우, 에러 메시지를 반환하세요. (예: "Invalid data type")
         // 3. RawData::Text일 경우, 내부 input_str (String)의 소유권을 클로저로 넘기세요.
         // 4. 클로저의 결과를 새로운 RawData::Text로 묶어 Ok로 반환하세요.
-        
+
         // 여기에 코드 작성
-        
+
         if let RawData::Text(input_str) = data {
             Ok(RawData::Text(transform_fn(input_str)))
         } else {
             Err(String::from("Invaild data type"))
         }
-        
     }
 }
 
@@ -124,7 +121,6 @@ impl Display for RawData {
             RawData::Number(num) => write!(f, "{}", num),
             RawData::Flag(is_active) => write!(f, "{}", is_active),
         }
-        
     }
 }
 
@@ -136,23 +132,24 @@ fn main() {
     // 💡 요구사항 D1: 초기 데이터 생성 및 변환기 준비
     // 1. RawData::Text로 "  Data cleaning and analysis.  " (앞뒤 공백 포함)을 생성하세요.
     // 2. TextConverter 인스턴스를 생성하세요 (이름: "Cleaner", 설정: "Trim, Upper").
-    
+
     // 여기에 코드 작성
-    
-    let text = RawData::Text(String::from("  Data cleaning and analysis  "));
-    
-    let text_converter = TextConverter::new("Cleaner", "Trim, Upper");
-    
-    
-    
+
+    let initial_data = RawData::Text(String::from("  Data cleaning and analysis  "));
+
+    let converter = TextConverter::new("Cleaner", "Trim, Upper");
+
     // 💡 요구사항 D2: 클로저 정의 (문자열 메서드 활용)
     // 3. 소유권을 받고 String을 반환하는 클로저를 정의하세요.
     // 📌 클로저 내부에서 문자열의 .trim()과 .to_uppercase() 메서드를 순서대로 활용하세요.
     // 📌 .trim()은 &str을 반환하므로, .to_uppercase()는 String을 반환합니다.
-    
-    // 여기에 클로저 정의
-    let cleaning_transform = /* 여기에 클로저 정의 */ ;
 
+    // 여기에 클로저 정의
+    let cleaning_transform = |data: String| {
+        // let result = String::from(data.trim()).to_uppercase();
+        data.trim().to_uppercase()
+        // result
+    };
 
     // 💡 요구사항 D3: 파이프라인 실행
     // 4. run_pipeline을 호출하고 결과를 출력하세요.
@@ -162,13 +159,10 @@ fn main() {
         Ok(data) => println!("✅ Final Output: {}", data),
         Err(e) => println!("❌ Pipeline Error: {}", e),
     }
-
+    
     // 💡 요구사항 D4: 에러 상황 테스트 (Number 타입)
     // 5. RawData::Number(123)을 생성하고 run_pipeline을 호출하여 에러를 확인하세요.
-    
     // 여기에 코드 작성
-    
-    
-    
-    
+    // let err_data = RawData::Number(123);
+    // let result_err = run_pipeline(err_data, converter, cleaning_transform);
 }
