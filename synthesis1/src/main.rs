@@ -109,7 +109,7 @@ where
         if let RawData::Text(input_str) = data {
             Ok(RawData::Text(transform_fn(input_str)))
         } else {
-            Err("Invaild data type".to_string())
+            Err(String::from("Invaild data type"))
         }
         
     }
@@ -139,9 +139,9 @@ fn main() {
     
     // 여기에 코드 작성
     
+    let text = RawData::Text(String::from("  Data cleaning and analysis  "));
     
-    
-    
+    let text_converter = TextConverter::new("Cleaner", "Trim, Upper");
     
     
     
