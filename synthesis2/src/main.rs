@@ -41,11 +41,11 @@ T: FnOnce(String) -> String,
     
     fn process(&self, data: SecureData, func: T) -> Result<SecureData, String> {
         let result = match data {
-            Ok(s) => {
-                SecureData::Sensitive(func(s))
-            },
-            Err(_) => {
-                String::from("Encryption failed: Not sensitive data")
+            SecureData::Sensitive(s) => {
+                Ok(SecureData::Sensitive(func(s)))
+            }
+            _ => {
+                Err(String::from("Encryption failed: Not sensitive data"))
             }
         };
         result
