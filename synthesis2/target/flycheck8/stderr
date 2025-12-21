@@ -1,0 +1,54 @@
+   0.003777875s  INFO prepare_target{force=false package_id=synthesis2 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis2) target="synthesis2"}: cargo::core::compiler::fingerprint: fingerprint error for synthesis2 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis2)/Check { test: false }/TargetInner { name: "synthesis2", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/synthesis2/src/main.rs", Edition2024) }
+   0.003795917s  INFO prepare_target{force=false package_id=synthesis2 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis2) target="synthesis2"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/synthesis2/target/debug/.fingerprint/synthesis2-95a6ec3e26965fe6/bin-synthesis2`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: std::backtrace::Backtrace::capture
+   2: cargo_util::paths::read_bytes
+   3: cargo_util::paths::read
+   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   5: cargo::core::compiler::fingerprint::prepare_target
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.006513625s  INFO prepare_target{force=false package_id=synthesis2 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis2) target="synthesis2"}: cargo::core::compiler::fingerprint: fingerprint error for synthesis2 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis2)/Check { test: true }/TargetInner { name: "synthesis2", doc: true, ..: with_path("/Users/omelet1/Documents/rust-with-gemini/synthesis2/src/main.rs", Edition2024) }
+   0.006521625s  INFO prepare_target{force=false package_id=synthesis2 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis2) target="synthesis2"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/omelet1/Documents/rust-with-gemini/synthesis2/target/debug/.fingerprint/synthesis2-b57397540a04a43a/test-bin-synthesis2`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: std::backtrace::Backtrace::capture
+   2: cargo_util::paths::read_bytes
+   3: cargo_util::paths::read
+   4: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   5: cargo::core::compiler::fingerprint::prepare_target
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+    Checking synthesis2 v0.1.0 (/Users/omelet1/Documents/rust-with-gemini/synthesis2)
+error: could not compile `synthesis2` (bin "synthesis2" test) due to 5 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `synthesis2` (bin "synthesis2") due to 5 previous errors
