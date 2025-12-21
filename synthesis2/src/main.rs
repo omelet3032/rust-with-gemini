@@ -62,9 +62,14 @@ T: FnOnce(String) -> String,
 // 제네릭 P와 T를 사용하여 run_pipeline과 유사한 함수를 만드세요.
 pub fn execute_task<P, T>(data: SecureData, processor: P, task: T) -> Result<SecureData, String>
 where
+P: DataProcessor<T>,
+T: FnOnce(String) -> String
     // P와 T에 필요한 트레이트 경계를 모두 작성하세요.
 {
     // 로직: 프로세서 ID 출력 후 process 실행 결과 반환
+    println!("id : {}", processor.id());
+    let result = processor.process(data, task);
+    result
 }
 
 // --------------------------------------------------
@@ -74,7 +79,16 @@ impl Display for SecureData {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // match를 사용해 각 유닛을 출력 가능하게 만드세요.
         // Sensitive는 "****"라고 출력되게 하고, 나머지는 실제 값을 출력하세요.
-    }
+        match self {
+            SecureData::Sensitive(_) => {
+                write!(f, "****")            },
+            SecureData::Public(value) => {
+                write!(f, "{}", value)
+            },
+            SecureData::Key(value) => {
+                write!(f, "{}", value)
+            },
+        } }
 }
 
 // --------------------------------------------------
