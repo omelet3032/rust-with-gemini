@@ -52,10 +52,14 @@ F: FnOnce(u8) -> u8
 
 // 4. run_command 제네릭 함수 작성
 // (P: Command<F> 등 필요한 제약 조건을 모두 찾아내어 작성하세요)
-fn run_command() -> Result<Appliance, String> 
-where 
-{
 
+// enum struct closer
+fn run_command<P,F>(appliance:Appliance, manager:P, logic:F) -> Result<Appliance, String> 
+where 
+P: Command<F>,
+F: FnOnce(u8) -> u8
+{
+    manager.execute(appliance, logic)
 }
 
 fn main() {
