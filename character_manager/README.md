@@ -50,6 +50,7 @@ fn main() {
     let mut warrior = Character { name: "Warrior", hp: 50 };
     
     // 시나리오 1: 포션 사용 (+30) -> HP 80
+    
     // 시나리오 2: 강력한 독 사용 (-100) -> Dead 에러 발생 확인
     // 시나리오 3: Warp 사용 -> NotSupported 에러 확인
     
