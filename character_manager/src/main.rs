@@ -138,7 +138,8 @@ fn apply_item(item: Item, warrior: &mut Character) -> Result<(), DungeonError> {
      */
 
     // 1. 클로저 동적 디스패치
-    let effect: Box<dyn FnMut(u32) -> u32> = match item {
+    // let effect: Box<dyn FnMut(u32) -> u32> = match item {
+    let effect: Box<dyn FnOnce(u32) -> u32> = match item {
         Item::Potion(v) => Box::new(move |hp| hp + v),
         Item::Poison(v) => Box::new(move |hp| hp.saturating_sub(v)),
         Item::Warp => Box::new(std::convert::identity),
@@ -147,7 +148,16 @@ fn apply_item(item: Item, warrior: &mut Character) -> Result<(), DungeonError> {
     item.use_on(warrior, effect)?;
 
     // 2. value 추출
+    let value = match item {
+        Item::Potion(value) => value as i32,
+        Item::Poison(value) => -(value as i32),
+        Item::Warp => {0}
+    };
 
+    item.use_on(warrior, |hp| {
+        if value >= 0 {hp + value as u32}
+        else {hp.saturating_sub(value.abs() as u32)}
+    })?;
 
     Ok(())
 }
