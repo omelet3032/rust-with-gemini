@@ -31,17 +31,25 @@
 */
 
 fn main() {
+
+    // 3단계
+    let nums = (1..=10).collect::<Vec<i32>>();
+
+    let nums_iter1 = nums.into_iter().fold(2, |acc, x| acc + x);
+    
+    println!("{:?}", nums_iter1);
+
     /*
        1단계 : map
     */
     let nums = vec![1, 2, 3, 4, 5];
 
-    let nums_iter = nums.into_iter();
+    let nums_iter2 = nums.into_iter();
 
     // let result: Vec<i32> = nums_iter.map(|num| num * num).collect();
-    let result = nums_iter.map(|x| x * x).collect::<Vec<i32>>();
+    let result = nums_iter2.map(|x| x * x).collect::<Vec<i32>>();
     // let result = nums_iter.map(|x| x * x).collect::<Vec<_>>();
-
+    println!("{:?}", result);
     /*
        2단계 : filter
     */
@@ -53,4 +61,6 @@ fn main() {
     for i in result2 {
         println!("i : {}", i);
     }
+
+
 }
