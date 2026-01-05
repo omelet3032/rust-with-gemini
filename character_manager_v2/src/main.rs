@@ -10,9 +10,45 @@ enum Item {
     Warp,
 }
 
+#[derive(Debug)]
 enum DungeonError {
     Dead,
     NotSupported,
+}
+
+trait Usable {
+    fn use_on<F>(&self, character: &mut Character, effect:F) -> Result<(),DungeonError>
+    where 
+        F: FnOnce(u32) -> u32;
+}
+
+impl Usable for Item {
+    fn use_on<F>(&self, character: &mut Character, effect:F) -> Result<(),DungeonError>
+    where 
+       F: FnOnce(u32) -> u32 
+    {
+
+        match self {
+            Item::Potion(_) => {
+                character.hp = effect(character.hp);
+                Ok(())
+            },
+            Item::Poison(_) => {
+                character.hp = effect(character.hp);
+                if character.hp <= 0 {
+                    Err(DungeonError::Dead)
+                } else {
+                    Ok(())
+                }
+            },
+            Self::Warp => {
+                Err(DungeonError::NotSupported)
+            }
+        }
+
+
+    } 
+
 }
 
 impl Character {
@@ -20,8 +56,10 @@ impl Character {
         // 팁: 가방에서 아이템을 하나씩 꺼내기 위해 반복자를 사용하세요.
         // 드레인(drain)이나 이터레이터(into_iter)를 고민해 보세요.
         
-        for item in self.inventory.drain(..) {
+        self.inventory.into_iter().
 
+        for item in self.inventory.drain(..) {
+            
         }
         println!("--- 가방 정리를 시작합니다 ---");
 
@@ -30,6 +68,7 @@ impl Character {
         Ok(())
     }
 }
+
 
 fn main() {
     let mut warrior = Character {
